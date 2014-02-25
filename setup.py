@@ -36,6 +36,7 @@ For more informations visit the new `Jinja2 webpage`_ and `documentation`_.
 .. _documentation: http://jinja.pocoo.org/2/documentation/
 """
 import sys
+import jinja2
 
 from setuptools import setup, Extension, Feature
 
@@ -74,7 +75,7 @@ else:
 
 setup(
     name='Jinja2',
-    version='2.7-dev',
+    version=jinja2.__version__,
     url='http://jinja.pocoo.org/',
     license='BSD',
     author='Armin Ronacher',
