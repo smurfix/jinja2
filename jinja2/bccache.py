@@ -206,7 +206,7 @@ class FileSystemBytecodeCache(BytecodeCache):
 
     def __init__(self, directory=None, pattern='__jinja2_%s.cache'):
         if directory is None:
-            directory = self._get_default_cache_dir()
+            directory = tempfile.mkdtemp(prefix='jinja2-cache-')
         self.directory = directory
         self.pattern = pattern
 
