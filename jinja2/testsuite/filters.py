@@ -211,6 +211,14 @@ class FilterTestCase(JinjaTestCase):
         tmpl = env.from_string('''{{ "FOO\tBAR"|title }}''')
         assert tmpl.render() == "Foo\tBar"
 
+        class Foo:
+            def __str__(self):
+                return 'foo-bar'
+
+        tmpl = env.from_string('''{{ data|title }}''')
+        out = tmpl.render(data=Foo())
+        assert out == 'Foo-Bar'
+
     def test_truncate(self):
         tmpl = env.from_string(
             '{{ data|truncate(15, true, ">>>") }}|'
@@ -219,7 +227,13 @@ class FilterTestCase(JinjaTestCase):
         )
         out = tmpl.render(data='foobar baz bar' * 1000,
                           smalldata='foobar baz bar')
-        assert out == 'foobar baz barf>>>|foobar baz >>>|foobar baz bar'
+        msg = 'Current output: %s' % out
+        assert out == 'foobar baz b>>>|foobar baz >>>|foobar baz bar', msg
+
+    def test_truncate_end_length(self):
+        tmpl = env.from_string('{{ "Joel is a slug"|truncate(9, true) }}')
+        out = tmpl.render()
+        assert out == 'Joel i...', 'Current output: %s' % out
 
     def test_upper(self):
         tmpl = env.from_string('{{ "foo"|upper }}')
@@ -227,6 +241,14 @@ class FilterTestCase(JinjaTestCase):
 
     def test_urlize(self):
         tmpl = env.from_string('{{ "foo http://www.example.com/ bar"|urlize }}')
+        assert tmpl.render() == 'foo <a href="http://www.example.com/">'\
+                                'http://www.example.com/</a> bar'
+
+    def test_urlize_target_parameter(self):
+        tmpl = env.from_string('{{ "foo http://www.example.com/ bar"|urlize(target="_blank") }}')
+        assert tmpl.render() == 'foo <a href="http://www.example.com/" target="_blank">'\
+                                'http://www.example.com/</a> bar'
+        tmpl = env.from_string('{{ "foo http://www.example.com/ bar"|urlize(target=42) }}')
         assert tmpl.render() == 'foo <a href="http://www.example.com/">'\
                                 'http://www.example.com/</a> bar'
 
