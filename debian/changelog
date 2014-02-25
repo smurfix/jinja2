@@ -1,0 +1,5 @@
+jinja2 (2.7-devdev-20140225-1) smurf; urgency=low
+
+  * source package automatically created by stdeb 0.6.0+git
+
+ -- Armin Ronacher <armin.ronacher@active-4.com>  Tue, 25 Feb 2014 17:28:54 +0100
