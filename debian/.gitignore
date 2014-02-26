@@ -1,0 +1,7 @@
+/files
+/*.debhelper
+/*.log
+/*.substvars
+/python3-jinja2/
+/python-jinja2/
+/python-jinja2-doc/
