@@ -121,8 +121,8 @@ Tests
 Beside filters there are also so called "tests" available.  Tests can be used
 to test a variable against a common expression.  To test a variable or
 expression you add `is` plus the name of the test after the variable.  For
-example to find out if a variable is defined you can do ``name is defined``
-which will then return true or false depending on if `name` is defined.
+example, to find out if a variable is defined you can do ``name is defined``
+which will return True or False depending on whether `name` is defined.
 
 Tests can accept arguments too.  If the test only takes one argument you can
 leave out the parentheses to group them.  For example the following two
@@ -1238,7 +1238,7 @@ The following functions are available in the global scope by default:
 
     .. method:: next()
 
-        Goes one item a head and returns the then current item.
+        Skips ahead by one item and returns the then-current item.
 
     .. attribute:: current
 

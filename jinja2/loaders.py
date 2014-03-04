@@ -139,8 +139,8 @@ class FileSystemLoader(BaseLoader):
     """Loads templates from the file system.  This loader can find templates
     in folders on the file system and is the preferred way to load them.
 
-    The loader takes the path to the templates as string, or if multiple
-    locations are wanted a list of them which is then looked up in the
+    The loader takes the path to the templates as string or, if multiple
+    locations are wanted, a list of them, which are looked up in the
     given order::
 
     >>> loader = FileSystemLoader('/path/to/templates')
@@ -291,9 +291,10 @@ class DictLoader(BaseLoader):
 
 class FunctionLoader(BaseLoader):
     """A loader that is passed a function which does the loading.  The
-    function becomes the name of the template passed and has to return either
-    an unicode string with the template source, a tuple in the form ``(source,
-    filename, uptodatefunc)`` or `None` if the template does not exist.
+    function must accept one argument: the name of the template.
+    It has to return either a unicode string with the template source,
+	a tuple in the form ``(source, filename, uptodatefunc)``
+    or `None` if the template does not exist.
 
     >>> def load_template(name):
     ...     if name == 'index.html':

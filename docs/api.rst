@@ -36,7 +36,7 @@ and you can also write your own if you want to load templates from a
 database or other resources.
 
 To load a template from this environment you just have to call the
-:meth:`get_template` method which then returns the loaded :class:`Template`::
+:meth:`get_template` method which returns the loaded :class:`Template`::
 
     template = env.get_template('mytemplate.html')
 
@@ -44,7 +44,7 @@ To render it with some variables, just call the :meth:`render` method::
 
     print template.render(the='variables', go='here')
 
-Using a template loader rather then passing strings to :class:`Template`
+Using a template loader rather than passing strings to :class:`Template`
 or :meth:`Environment.from_string` has multiple advantages.  Besides being
 a lot easier to use it also enables template inheritance.
 
@@ -278,7 +278,7 @@ These classes can be used as undefined types.  The :class:`Environment`
 constructor takes an `undefined` parameter that can be one of those classes
 or a custom subclass of :class:`Undefined`.  Whenever the template engine is
 unable to look up a name or access an attribute one of those objects is
-created and returned.  Some operations on undefined values are then allowed,
+created and returned.  Some operations on undefined values are allowed,
 others fail.
 
 The closest to regular Python behavior is the `StrictUndefined` which
@@ -578,7 +578,7 @@ You can register it on the template environment by updating the
 
     environment.filters['datetimeformat'] = datetimeformat
 
-Inside the template it can then be used as follows:
+Inside the template it can be used as follows:
 
 .. sourcecode:: jinja
 
@@ -608,8 +608,8 @@ enabled::
             result = Markup(result)
         return result
 
-Context filters work the same just that the first argument is the current
-active :class:`Context` rather then the environment.
+Context filters work the same, except that the first argument is the current
+active :class:`Context` rather than the environment.
 
 
 .. _eval-context:
@@ -703,7 +703,7 @@ You can register it on the template environment by updating the
 
     environment.tests['prime'] = is_prime
 
-A template designer can then use the test like this:
+A template designer can use the test like this:
 
 .. sourcecode:: jinja
 

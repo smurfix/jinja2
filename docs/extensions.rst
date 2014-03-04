@@ -33,7 +33,7 @@ enabled Jinja2 provides a `trans` statement that marks the wrapped string as
 translatable and calls `gettext`.
 
 After enabling dummy `_` function that forwards calls to `gettext` is added
-to the environment globals.  An internationalized application then has to
+to the environment globals.  An internationalized application has to
 provide at least an `gettext` and optionally a `ngettext` function into the
 namespace.  Either globally or for each rendering.
 
@@ -242,7 +242,7 @@ And here is how you use it in an environment::
     env = Environment(extensions=[FragmentCacheExtension])
     env.fragment_cache = SimpleCache()
 
-Inside the template it's then possible to mark blocks as cacheable.  The
+Inside the template it's possible to mark blocks as cacheable.  The
 following example caches a sidebar for 300 seconds:
 
 .. sourcecode:: html+jinja
@@ -331,7 +331,7 @@ AST
 ~~~
 
 The AST (Abstract Syntax Tree) is used to represent a template after parsing.
-It's build of nodes that the compiler then converts into executable Python
+It's built of nodes which the compiler converts into executable Python
 code objects.  Extensions that provide custom statements can return nodes to
 execute custom Python code.
 

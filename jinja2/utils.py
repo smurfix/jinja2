@@ -386,9 +386,9 @@ class LRUCache(object):
 
     def __getitem__(self, key):
         """Get an item from the cache. Moves the item up so that it has the
-        highest priority then.
+        highest priority.
 
-        Raise a `KeyError` if it does not exist.
+        Raises a `KeyError` if the item does not exist.
         """
         self._wlock.acquire()
         try:
@@ -408,7 +408,7 @@ class LRUCache(object):
 
     def __setitem__(self, key, value):
         """Sets the value for an item. Moves the item up so that it
-        has the highest priority then.
+        has the highest priority.
         """
         self._wlock.acquire()
         try:
